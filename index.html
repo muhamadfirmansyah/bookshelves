@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelves</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="site-title">Bookshelves</h1>
+        </div>
+    </header>
+    <main>
+        <div id="content" class="my-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-8">
+                        <section>
+                            <div id="selves" class="box-group">
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h4>Search Books</h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="form-group">
+                                            <input type="search" class="form-input" placeholder="Type the book's title ..." id="search-input">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h4 class="box-title">Continue Reading</h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <ul class="book-list" id="continue-reading-list">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <div class="box-header">
+                                        <h4 class="box-title">Finished Reading</h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <ul class="book-list" id="finished-reading-list">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col col-4">
+                        <aside>
+                            <div class="box">
+                                <div class="box-header">
+                                    <h4 id="form-header-text">Add new book</h4>
+                                </div>
+                                <div class="box-body">
+                                    <form action="" id="book-form" method="POST" class="form">
+                                        <div class="form-group">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-input" name="title" id="title" autocomplete="off" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="author">Author</label>
+                                            <input type="text" class="form-input" name="author" id="author" autocomplete="off" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="year">Year</label>
+                                            <input type="number" class="form-input" name="year" id="year" min="1799" max="2022" required>
+                                        </div>
+                                        <div class="form-action">
+                                            <div class="checkbox-label">
+                                                <span class="checkbox">
+                                                    <input type="checkbox" class="form-input" name="is_finished" id="isFinished" value="true">
+                                                </span>
+                                                <label for="isFinished">Finished</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary block">
+                                                Save book
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

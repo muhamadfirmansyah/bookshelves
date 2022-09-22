@@ -1,0 +1,453 @@
+:root {
+    --primary: #85586f;
+    --secondary: #ac7d88;
+    --tertiary: #deb6ab;
+    --quaternary: #f8ecd1;
+    --white: #ffffff;
+}
+
+* {
+    font-family: 'Noto Serif', serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--quaternary);
+    line-height: 1.5;
+}
+
+.container {
+    display: block;
+    width: 96%;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col {
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-8 {
+    flex-basis: calc((8 / 12) * 100%);
+    max-width: calc((8 / 12) * 100%);
+}
+
+.col-4 {
+    flex-basis: calc((4 / 12) * 100%);
+    max-width: calc((4 / 12) * 100%);
+}
+
+.mb-3,
+.my-3 {
+    margin-bottom: 2rem;
+}
+
+.mt-3,
+.my-3 {
+    margin-top: 3rem;
+}
+
+header {
+    text-align: center;
+    background-color: var(--white);
+    color: var(--primary);
+    padding-top: 0.8rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 2px solid var(--tertiary);
+}
+
+.site-title {
+    position: relative;
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    user-select: none;
+    pointer-events: none;
+}
+
+.site-title::after {
+    content: 'by Muhamad Firmansyah';
+    position: absolute;
+    bottom: -0.25rem;
+    font-size: 0.6rem;
+    left: 0;
+    font-weight: lighter;
+}
+
+.site-title::before {
+    content: '';
+    position: absolute;
+    right: -0.2rem;
+    top: 0.6rem;
+    transform: translateY(-42%);
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid var(--primary);
+    border-width: 0 3px 3px 0;
+    rotate: 45deg;
+}
+
+.box-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.box {
+    background-color: var(--quaternary);
+    width: 100%;
+    border: 1px solid var(--secondary);
+}
+
+.box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    color: var(--primary);
+    background-color: var(--quaternary);
+    border-bottom: 1px solid var(--secondary);
+}
+
+.box-chevicon {
+    color: var(--primary);
+    transform: rotate(90deg);
+    font-size: 1rem;
+}
+
+.box-body {
+    color: var(--primary);
+    height: fit-content;
+    padding: 1rem;
+    transition: 0.3s all ease-in;
+}
+
+.box-header.show .box-chevicon {
+    transform: rotate(270deg);
+    transition: 0.3s all ease-out;
+}
+
+.box-header.show~.box-body {
+    max-height: unset;
+    transition: 0.3s all ease-out;
+}
+
+.book-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.book-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    counter-increment: book;
+    z-index: 1;
+    padding: 0.4rem 0;
+}
+
+.book-item::before {
+    content: counter(book);
+    position: absolute;
+    top: -1.2rem;
+    left: -0.8rem;
+    font-size: 2rem;
+    background-color: fade(var(--tertiary));
+    aspect-ratio: 1 / 1;
+    width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.book-item::after {
+    content: counter(book);
+    width: 0%;
+    line-height: 0;
+    text-indent: -1.2rem;
+    font-size: 1rem;
+    right: 0;
+    position: absolute;
+    height: 0.5px;
+    background-color: var(--primary);
+    bottom: 0;
+    opacity: 0;
+}
+
+.book-item:hover::after {
+    width: 20%;
+    transition: 0.3s all ease-out;
+    opacity: 0.2;
+}
+
+.book-action {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.checkbox {
+    display: block;
+    height: 25px;
+    width: 25px;
+    aspect-ratio: 1 / 1;
+}
+
+.checkbox input[type='checkbox'] {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    aspect-ratio: 1 /1;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.checkbox input[type='checkbox']::before {
+    content: '';
+    width: 25px;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0px;
+    border: 1px solid var(--primary);
+    background-color: var(--quaternary);
+    cursor: pointer;
+}
+
+.checkbox input[type='checkbox']:focus::before {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.checkbox input[type='checkbox']:checked::before {
+    background-color: var(--primary);
+    transition: all 0.1s ease-out;
+}
+
+.checkbox input[type='checkbox']:checked:after {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(-45%, -65%);
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid var(--white);
+    border-width: 0 3px 3px 0;
+    rotate: 45deg;
+}
+
+.book-info {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 80%;
+}
+
+.book-info h3 {
+    font-size: 1.2rem;
+    line-clamp: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-bottom: 0.1rem;
+}
+
+.book-info p {
+    font-size: 0.8rem;
+    color: var(--secondary);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+.form-group .form-input {
+    padding: 0.6rem 0.6rem;
+    background-color: var(--quaternary);
+    border: 1px solid var(--secondary);
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.form-group .form-input:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.form-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+    padding: 0 0.8rem;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.btn-outline-primary {
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--quaternary);
+    border: 1px solid var(--primary);
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover {
+    opacity: 0.8;
+}
+
+.btn-primary:active,
+.btn-outline-primary:active {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.block {
+    display: block;
+}
+
+.relative {
+    position: relative;
+}
+
+.checkbox-label {
+    display: flex;
+    justify-items: center;
+    gap: 0.6rem;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.checkbox-label label {
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    z-index: 100;
+}
+
+.dropdown .dropdown-list {
+    top: 0;
+    transform: translateY(-100%);
+    position: absolute;
+    list-style-type: none;
+    width: 100%;
+    display: none;
+}
+
+.dropdown:hover .dropdown-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown .dropdown-list li button {
+    border: 0;
+    background-color: transparent;
+    width: 100%;
+    color: var(--white);
+    padding: 0.4rem 0.3rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    background-color: var(--secondary);
+}
+
+.dropdown .dropdown-list li button:hover {
+    background-color: var(--tertiary);
+}
+
+::placeholder {
+    color: var(--secondary);
+    opacity: 0.2;
+}
+
+:-ms-input-placeholder {
+    color: var(--secondary);
+}
+
+::-ms-input-placeholder {
+    color: var(--secondary);
+}
+
+@media screen and (max-width: 880px) {
+    .row {
+        margin: 0;
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+    .col {
+        flex-basis: 100%;
+        max-width: unset;
+    }
+    .book-info {
+        flex-basis: 60%;
+    }
+}
